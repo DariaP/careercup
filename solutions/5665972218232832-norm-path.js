@@ -6,6 +6,11 @@ output: \a\foo.txt
 */
 
 function normalize(path) {
+  
+  if (typeof(path) !== "string") {
+    throw "Invalid input (string required)";
+  }
+
   var normFolders = folders();
 
   path.split("\\").forEach(
@@ -24,19 +29,20 @@ function normalize(path) {
 
 function folders() {
   var _folders = [];
+  var leadingDots = [];
   return {
     up: function() {
       if (_folders.length !== 0) {
         _folders.pop();
       } else {
-        throw "Invalid path";
+        leadingDots.push('..');
       }
     },
     down: function(folderName) {
       _folders.push(folderName);
     },
     folders: function () {
-      return _folders;
+      return leadingDots.concat(_folders);
     }
   }
 }

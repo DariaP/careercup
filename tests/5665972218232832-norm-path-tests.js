@@ -54,3 +54,9 @@ test('nested dots', function ( t) {
   t.equals(result, 'apple', 'root is alright');
   t.end();
 });
+
+test('starts with dots', function ( t) {
+  var result = normalize('..\\apple\\banana\\mango');
+  t.equals(result, '..\\apple\\banana\\mango', 'root is alright');
+  t.end();
+});
