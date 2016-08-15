@@ -5,96 +5,12 @@ combinations of numbers that add up to N, as lists. (Exclude the N+0=N)
 For example, if N=4 return {{1,1,1,1},{1,1,2},{2,2},{1,3}}
 */
 
-
-/*5:
-1 1 1 1 1
-2 1 1 1
-2 2 1
-3 1 1
-3 2
-4 1
-
-6
-1 1 1 1 1 1  lastMovable1 = 1
-
-2 1 1 1 1 lastMovable1 = 2
-
-3 1 1 1
-2 2 1 1
-
-4 1 1
-3 2 1
-2 2 2
-
-5 1
-4 2
-3 3
-
-6:
-5 1 0 0 0 0
-4 2 0 0 0 0
-4 1 1 0 0 0
-3 3 0 0 0 0
-3 2 1 0 0 0
-3 1 1 1 0 0
-2 2 2 0 0 0
-2 2 1 1 0 0
-2 1 1 1 1 0
-
-7:
-
-7 decPosition = 0
-
-
-6 1 decPosition = 1; decPosition--;
-5 2
-
-5 2
-
-
-5 1 1
-
-4 3
-4 2 1
-4 1 1 1
-3 3 1
-3 2 2
-3 2 1 1
-3 1 1 1 1
-2 2 2 1
-2 2 1 1 1
-2 1 1 1 1 1
-
-1 1 1 1 1 1
-  2 1 1 1 1
-   2 1 1 1*/
-
 #include <iostream>
 #include <vector>
 #define BOOST_TEST_MODULE AllSumTests
 #define BOOST_TEST_MAIN
 #define BOOST_TEST_DYN_LINK
 #include <boost/test/unit_test.hpp>
-
-/*std::vector<std::vector<int>> findAllCombinations(int number, int lowerBound)
-{
-  if (number == 1) {
-    if (upperBound == 1 && lowerBound == 1) {
-      return std::vector<std::vector<int>>({{1}});
-    } else {
-      return std::vector<std::vector<int>>({});
-    }
-  } else {
-    std::vector<std::vector<int>> result;
-    int firstSequenceNumber = lowerBound;
-    while (firstSequenceNumber <= number / 2) {
-      std::vector<int> nextResult = {firstSequenceNumber};
-      auto remainderCombinations = findAllCombinations(
-        number - firstSequenceNumber, firstSequenceNumber);
-      ;
-    }
-  }
-}*/
 
 std::vector<std::vector<int>> findAllCombinations(int number) {
   std::vector<std::vector<int>> result = {};
